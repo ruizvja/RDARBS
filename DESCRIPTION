@@ -1,0 +1,17 @@
+Package: RDARBS
+Type: Package
+Title: R package for data analysis and representation in behavior science
+Description: Toolbox for easily analyze and visualize data from several types of research designs in behavior science.
+Version: 1.0.0.0
+Author: Jorge Ruiz [cre. aut] (<https://orcid.org/0000-0001-9495-2042>)
+Maintainer: Jorge Ruiz <ruizvja@yahoo.com>
+License: GPL-2 | GPL-3
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

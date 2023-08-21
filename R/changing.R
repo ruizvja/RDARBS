@@ -1,0 +1,13 @@
+#' Data from a changing-criterion design
+#'
+#' A fictitious data set exemplifying the organization of data for a single case design in which three criteria were implemented over 60 consecutive sessions, 20 under each criterion.
+#'
+#' @format A \code{data.frame} of 60 rows and 4 columns.
+#' \describe{
+#'  \item{Session}{Numeric values giving number of either, day or session.}
+#'  \item{Measure}{Numeric values giving the magnitude of dependent variable for each day or session.}
+#'  \item{Criteria}{Numeric values giving the corresponding level of each criterion.}
+#'  \item{Phase}{String values giving the label for each criterion.}
+#' }
+#' @source Randomly generated data
+"changing"

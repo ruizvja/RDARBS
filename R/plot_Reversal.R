@@ -10,7 +10,7 @@
 #' @param ylab label for y axis
 #' @param legend label to identify the subject.
 #' @return Returns a graphic that shows the registered value for each day, indicating the current phase, as well as the change from one phase to another.
-#' @author Jorge A. Ruiz <ruizvja@yahoo.com>
+#' @author omitted for blind review
 #' @examples
 #' plot_Reversal(reversal$Session,reversal$Measure,reversal$Phase)
 #' 

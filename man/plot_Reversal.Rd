@@ -44,5 +44,5 @@ plot_Reversal(reversal$Session,reversal$Measure,reversal$Phase)
 
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>
+omitted for blind review
 }

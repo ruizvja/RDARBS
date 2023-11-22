@@ -9,5 +9,5 @@
 Toolbox for easily analyze and visualize data from several types of research designs in behavior science
 }
 \author{
-Jorge A. Ruiz \email{ruizvja@yahoo.com} (ORCID = 0000-0001-9495-2042)
+omitted for blind review
 }

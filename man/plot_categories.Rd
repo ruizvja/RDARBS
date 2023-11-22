@@ -45,5 +45,5 @@ plot_categories(categories$Serie,categories$Inicio,categories$Final,lev=c("O","e
  
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>
+omitted for blind review
 }

@@ -47,5 +47,5 @@ plot_ME(multielement$Session,multielement$Measure,multielement$Treatment,multiel
 
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>
+omitted for blind review
 }

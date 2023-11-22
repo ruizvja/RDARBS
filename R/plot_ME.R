@@ -11,7 +11,7 @@
 #' @param ylab label for y axis
 #' @param legend label to identify the subject.
 #' @return Returns a graphic that shows the registered value for each day, indicating the current phase and treatment, as well as the change from one phase to another.
-#' @author Jorge A. Ruiz <ruizvja@yahoo.com>
+#' @author omitted for blind review
 #' @examples
 #' plot_ME(multielement$Session,multielement$Measure,multielement$Treatment,multielement$Phase)
 #' 

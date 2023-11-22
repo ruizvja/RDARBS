@@ -40,5 +40,5 @@ cumRecord(operants$time,operants$events,t_res=.2,code=c(1,7),ymax=100,xlab="Time
  
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>, Cristina Guerrero <gusc1001@gmail.com>
+omitted for blind review
 }

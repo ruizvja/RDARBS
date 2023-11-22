@@ -46,5 +46,5 @@ plot_CC(changing$Session,changing$Measure,changing$Criteria,changing$Phase)
  
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>
+omitted for blind review
 }

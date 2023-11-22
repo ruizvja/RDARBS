@@ -2,13 +2,13 @@
 % Please edit documentation in R/plot_dir.R
 \name{plot_dir}
 \alias{plot_dir}
-\title{Plot routes per cycle}
+\title{Plot routes per cycle (or trial)}
 \usage{
 plot_dir(
   x,
   y,
-  n.cycles,
-  len.cycles,
+  cycle,
+  select = 0,
   xlim,
   ylim,
   xlab = "X",
@@ -18,13 +18,13 @@ plot_dir(
 )
 }
 \arguments{
-\item{x}{vector that contains coordinates in x axis.}
+\item{x}{vector that contains coordinates in x axis, frame by frame.}
 
-\item{y}{vector that contains coordinates in y axis.}
+\item{y}{vector that contains coordinates in y axis, frame by frame.}
 
-\item{n.cycles}{value used to indicate the number of cycles.}
+\item{cycle}{vector with values indicating the corresponding number of cycle or trial for each frame.}
 
-\item{len.cycles}{value used to indicate the length of each cycle.}
+\item{select}{value or vector with values indicating the number of cycle or trial to be plotted. By default, \code{select=0} produce a plot for each temporal segment.}
 
 \item{xlim}{vector with min and max values for x axis.}
 
@@ -34,22 +34,25 @@ plot_dir(
 
 \item{ylab}{label for y axis.}
 
-\item{roi}{vector with values to indicate coordinates of a region of interest.}
+\item{roi}{vector with a pair of values to indicate coordinates of a region of interest (assuming a circular shape).}
 
-\item{r}{value to indicate the radius of ROI.}
+\item{r}{value to indicate the radius of \code{roi}.}
 }
 \value{
-Returns a graphic that shows categories of behavior over time of observation.
+Returns a graphic that shows routes of movement through the experimental arena, by cycle or by trial.
 }
 \description{
-Plot the route correspondiente a cada uno de los ciclos en los que se divide el tiempo de registro.
+Plot the routes corresponding to the several cycles or trials within the session time.
 }
 \examples{
-plot_categories(categories$Serie,categories$Inicio,categories$Final) 
+library(interp)  #install interp package if needed
+x11()
+par(pty="s")
+par(mfrow=c(3,3))
+plot_dir(xy_test1$x,xy_test1$y,xy_test1$cycle,select=c(1,2,3,43,44,45,70,71,72),xlim=c(0,92),ylim=c(0,92),roi=c(0,46))
 
-plot_categories(categories$Serie,categories$Inicio,categories$Final,lev=c("O","e","E","h","L","s"),col=c(categories$Serie,categories$Serie))
  
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>
+omitted for blind review
 }

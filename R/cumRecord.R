@@ -9,7 +9,7 @@
 #' @param xlab label for x axis.
 #' @param ylab label for y axis
 #' @return Returns a graphic that shows cumulative responses over time of observation.
-#' @author Jorge A. Ruiz <ruizvja@yahoo.com>, Cristina Guerrero <gusc1001@gmail.com>
+#' @author omitted for blind review
 #' @examples
 #' cumRecord(operants$time,operants$events,t_res=.2,code=c(1,7),ymax=100,xlab="Time in seconds",ylab="Cumulative responses")
 #'  

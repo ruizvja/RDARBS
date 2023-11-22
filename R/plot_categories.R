@@ -10,7 +10,7 @@
 #' @param title text to show as title of plot.
 #' @param col value or vector to indicate color for categories in the plot. By default \code{col=I("black")}.
 #' @return Returns a graphic that shows categories of behavior over time of observation.
-#' @author Jorge A. Ruiz <ruizvja@yahoo.com>
+#' @author omitted for blind review
 #' @examples
 #' plot_categories(categories$Serie,categories$Inicio,categories$Final) 
 #' 

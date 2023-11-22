@@ -44,5 +44,5 @@ plot_MBL(mbl$session,mbl$measure,mbl$case,mbl$phase)
 
 }
 \author{
-Jorge A. Ruiz <ruizvja@yahoo.com>
+omitted for blind review
 }

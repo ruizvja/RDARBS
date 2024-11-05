@@ -1,0 +1,92 @@
+---
+title: "Creating plots for single-subject research designs"
+output: rmarkdown::html_vignette
+
+vignette: >
+  %\VignetteIndexEntry{Creating plots for single-subject research designs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo=FALSE}
+library(RDARBS)
+```
+In the study of behavior, it is common to use research designs that are characterized by the observation and measurement of a behavior (or its product) through different moments, sessions, days, etc., under two or more successive phases with different conditions under which the behavior of interest is recorded. Four types of so-called single-case designs are identified in the literature: reversal, multiple baseline, changing criteria, and alternating treatments (or multi-element) designs .
+The functions described here allow to produce figures suitable for this type of research designs in an easy and efficient way.
+To use any of the functions described in the following lines, data set must be created with a particular organization, regardless of the program used to create the file containing data (e.g., Microsoft Excel, Notepad, SPSS). In all cases, data set must include at least three columns, one to indicate the sessions or days of data recording, another for the value recorded in each session and one more to indicate the corresponding phase (e.g., baseline or intervention) of each session. That is, each row must include the day or session of data collection, the registered data and the current phase for that day. Except for reversal design, other columns must be added, in which the scenario, behavior or participant is introduced, in the case of the multiple baseline design, the current criteria in each phase of a changing criteria design, or one of the multiple treatments that alternate in each phase of the alternating treatments design.
+The RDARBS package includes different data sets that allow exemplifying the functions to plot data from single-case designs. The following sections illustrate each of these databases and the plot function corresponding to different single-case designs.
+
+## Reversal design
+For the reversal design, data set *reversal* exemplifies the structure needed to use directly the function designed to plot data from reversal designs. Data correspond to frequency of target behavior (*Measure* column) over 20 sessions (*Session* column), corresponding to different phases (*Phase* column): baseline (BL1), intervention (IV1), baseline (BL2), and intervention (IV2).
+```{r reversal dataset,echo=TRUE,include=TRUE}
+reversal
+```
+
+The proposed function has the form: `plot_Reversal(time, dimension, phase, symbol=18, type=”o”, xlab="x", ylab="y", legend="Subject",xdiv=0,ylim=NULL)`. Where *time* corresponds to the variable in which the session number is included, *dimension* to the collected data and *phase* to the current phase for each observation. The arguments *symbol*, *type*, *xlab*, *ylab*, and *legend*, have as predefined values the number and labels that appear between quotes and can be modified by the user before running the function. *Symbol* can take any acceptable numerical value for the *pch* parameter in the plot function from base package in R. *type* can take any acceptable value in R to indicate the type of graph that is produced, by default it is assigned *"o"* to overlap lines and points to plot the data series (using *“b”* prevents lines overlapping points); *xlab* and *ylab*, correspond to the labels of the abscissa and ordinate axis, respectively. *legend* corresponds to the label to identify the subject. *xdiv* has a default value of 0 to draw a tick mark for every data in time (i.e., for every day, session, etc.), a different value results in the assignation of a specific number of tick marks and the xdiv-1 corresponding intervals in the X-axis. *ylim* sets the upper limit of y-axis, by default, *NULL* value sets the limit in the next ten with respect to the maximum in dimension variable.
+Following lines of code illustrate the use of *reversal$Session* , *reversal$Measure* and *reversal$Phase* corresponding to the arguments *time*, *dimension*, and *phase*, respectively. The number 18 in *symbol* argument corresponds to filled diamonds. With *type=”o”*, lines and points are overlapped. *labels* for axes and *legend* where the text defined by default. User can change the number in *symbol* to use another plotting character and can change the labels for X and Y axes, as well as for subject.
+```{r reversal design, eval=FALSE, message=FALSE, include=TRUE}
+plot_Reversal(reversal$Session, reversal$Measure, reversal$Phase, symbol=18 , type="o", xlab="x", ylab="y", legend="Subject", xdiv=5,ylim=NULL)
+```
+The function automatically establishes, based on the number and names of the categories that are included in the phase variable, the number of sessions that are included in each phase, the placement of the vertical lines that separate each phase, as well as the labels corresponding to each one of them. The following plot illustrate the result of code in the previous lines.
+
+```{r plot_Reversal, include=TRUE, echo=FALSE}
+
+knitr::include_graphics("C:/Users/ruizv/Dropbox/Fig5_R3.svg")
+```
+
+
+## Multiple baseline design
+For multiple baseline design, data set *mbl* exemplifies the structure needed to use  function designed to plot data from this type of design. Data correspond to frequency of target behavior (*measure* column) over 20 sessions (*session* column) for each one of three cases (*case* column), through two different phases (*phase* column): baseline (BL), and intervention (IV).
+```{r mbl dataset,echo=TRUE,include=TRUE}
+mbl
+```
+The proposed function has the form: `plot_MBL(time, dimension, case, phase, symbol=11, type=”o”,xlab="x", ylab="y", xdiv=0,ylim=NULL)`. Where the arguments involved have the same function as in the previous function. The additional argument *case* corresponds to the identification of the scenario, behavior or subject to which the data of each baseline belongs. In this function it is not necessary to use the legend argument, since the algorithm identifies in the data set the corresponding labels from the variable indicated for *case* argument.
+Following figure shows the plot for a multiple baseline design using data set *mbl*. The function call was as follows:
+```{r mbl design, eval=FALSE, message=FALSE, include=TRUE}
+plot_MBL(mbl$session, mbl$measure, mbl$case, mbl$phase, symbol=18, type="o", xlab="x", ylab="y", xdiv = 6,ylim=NULL)
+```
+
+The function automatically determines, based on the number and names of the categories that are included in the *phase* variable (and its crossing with the *case* variable), the number of sessions that are included in each phase, the placement of the vertical lines that separate the baseline sessions from the treatment sessions in each case, as well as labels corresponding to each of the phases.
+
+```{r plot_mbl, include=TRUE, echo=FALSE}
+knitr::include_graphics("C:/Users/ruizv/Dropbox/Fig6_R3.svg")
+```
+
+## Changing criteria design
+For changing criterion design, the proposed function has the form `plot_CC(time, dimension, criteria, phase, symbol=18, type=”o”, xlab="x", ylab="y", legend="Subject", xdiv=0,ylim=NULL)`. Where the arguments involved have the same function as in the previous cases, while *criteria* corresponds to the identification of the current criteria in each session.
+The following figure shows the case of changing criterion design using data set *changing*. This data set includes the registration of a behavior (*Measure* column) over 60 sessions (*Session* column) for each one of three phases (*Phase* column), corresponding to specific values of each criterion (*Criteria* column).
+```{r changing criteria dataset,echo=TRUE,include=TRUE}
+changing
+```
+
+
+The call of the function was as follows:
+`plot_CC(changing$Session, changing$Measure, changing$Criteria, changing$Phase, symbol=18, type="o", xlab="x", ylab="y", legend="Subject", xdiv= 7,ylim=NULL)`
+The function automatically establishes, based on the number and names of the categories that are included in the *phase* variable (and its crossing with the *Criteria* variable), the number of sessions that are included in each phase, the placement of the vertical lines that separate the sessions under each, as well as the labels corresponding to each phase. Following figure illustrates ths plot of data from a changing criteria design.
+
+```{r plot_CC, include=TRUE, echo=FALSE}
+
+knitr::include_graphics("C:/Users/ruizv/Dropbox/Fig7_R3.svg")
+```
+## Alternating treatments design
+For alternating treatments or multielement designs, data set *multielement* exemplifies the structure needed to use  function designed to plot data from this type of design. Data correspond to frequency of target behavior (*Measure* column) over 25 sessions (*Session* column) for each one of three phases (*Phase* column), corresponding to different treatments (*Treatment* column).
+```{r multielement dataset,echo=TRUE,include=TRUE}
+multielement
+```
+The proposed function has the form `plot_ME(time, dimension, treatment, phase, symbol=c(0,15,19), type=”o”, xlab="x", ylab=" y", legend="Subject",ylim=NULL)`. Where the arguments involved have the same function as in the previous cases, while *treatment* corresponds to the designation of the current treatment at a given moment. In this case, *symbol* argument is predefined with three different plotting characters, one for baseline data and two more for two alternated treatments; however, users can change the quantity of values (and the number for each value) to identify the corresponding number of conditions (i.e., different data series). Next figure shows the case of alternating treatments or multielement design using the data set *multielement*, with a call of the function as follows:
+`plot_ME(multielement$Session, multielement$Measure, multielement$Treatment, multielement$Phase, symbol=c(0,15,19), type="o", xlab="x", ylab="y", legend="Subject", xdiv = 5,ylim=NULL)`
+The function automatically establishes, based on the number and names of the categories that are included in the phase variable, the number of sessions that are included in each phase, the placement of the vertical lines that separate the baseline sessions from those of treatment in each case, as well as the labels corresponding to each one of the phases.
+```{r plot_ME, include=TRUE, echo=FALSE}
+
+knitr::include_graphics("C:/Users/ruizv/Dropbox/Fig8_R3.svg")
+```
+
+In the case of this figure, function *legend()* must be added to specify the labels for each data series. Although this function accepts more arguments than those shown in the code below, those illustrated allow to establish X-Y coordinates to show the legend, to write the labels of data series, to assign the symbols for data series, specify the line type for data series, the title of the legend, the type of font, whether or not the legend will appear framed, as well as the background color of the legend box. The code to show the legend in the example plot of this dessign was as follos
+`legend(19,19, legend=c("BL", "IV1","IV2"), pch= c(0,15,19),lty=1, title="Conditions", text.font=4,box.lty = 1, bg=NULL)`

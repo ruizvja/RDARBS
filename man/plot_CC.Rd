@@ -13,7 +13,9 @@ plot_CC(
   type = "o",
   xlab = "x",
   ylab = "y",
-  legend = "Subject"
+  legend = "Subject",
+  xdiv = 0,
+  ylim = NULL
 )
 }
 \arguments{
@@ -34,6 +36,10 @@ plot_CC(
 \item{ylab}{label for y axis}
 
 \item{legend}{label to identify the subject.}
+
+\item{xdiv}{value to indicate the number of intervals into which the x-axis is divided. By default, value 0 results in dividing the axis into n-1 intervals, where n is the total number of sessions.}
+
+\item{ylim}{numeric value, giving the y-axis range. By default, \code{ylim=NULL} sets the limit in the next ten with respect to the maximum in \code{dimension} variable.}
 }
 \value{
 Returns a graphic that shows the registered value for each day, indicating the current criteria in each phase, as well as the change from one phase to another.
@@ -42,7 +48,7 @@ Returns a graphic that shows the registered value for each day, indicating the c
 Plot data through consecutive days or sessions, indicating which was the current criteria in each phase and when each phase change occurred.
 }
 \examples{
-plot_CC(changing$Session,changing$Measure,changing$Criteria,changing$Phase)
+plot_CC(changing$Session,changing$Measure,changing$Criteria,changing$Phase,xdiv=6,ylim=NULL)
  
 }
 \author{

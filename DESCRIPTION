@@ -3,15 +3,17 @@ Type: Package
 Title: R package for data analysis and representation in behavior science
 Description: Toolbox for easily analyze and visualize data from several types of research designs in behavior science.
 Version: 1.0.0.0
-Author: xxxxx xxx [cre. aut]
-Maintainer: xxxxx xxxx <omitted@example.com>
+Author: Jorge A. Ruiz 
+Maintainer: Jorge A. Ruiz <jorruiz@uv.mx>
 License: GPL-2 | GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 LazyData: true
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
+Config/testthat/edition: 3

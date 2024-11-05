@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Toolbox for easily analyze and visualize data from several types of research designs in behavior science 
-#' @author omitted for blind review
+#' @author Jorge A. Ruiz (ORCID: 0000-0001-9495-2042)
 #' @docType package
 #' @name RDARBS
 #' 

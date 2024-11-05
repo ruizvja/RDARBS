@@ -12,7 +12,9 @@ plot_MBL(
   symbol = 11,
   type = "o",
   xlab = "x",
-  ylab = "y"
+  ylab = "Y-axis",
+  xdiv = 0,
+  ylim = NULL
 )
 }
 \arguments{
@@ -30,7 +32,11 @@ plot_MBL(
 
 \item{xlab}{label for x axis.}
 
-\item{ylab}{label for y axis}
+\item{ylab}{label for y axis.}
+
+\item{xdiv}{value to indicate the number of intervals into which the x-axis is divided. By default, value 0 results in dividing the axis into n-1 intervals, where n is the total number of sessions.}
+
+\item{ylim}{numeric value, giving the y-axis range. By default, \code{ylim=NULL} sets the limit in the next ten with respect to the maximum in \code{dimension} variable.}
 }
 \value{
 Returns a graphic that shows the registered value for each day, indicating the current phase, as well as the change from one phase to another for each case.
@@ -39,7 +45,7 @@ Returns a graphic that shows the registered value for each day, indicating the c
 Plot data through consecutive days or sessions, indicating the label of each phase, the case to whom each registered data belongs, and when changes of conditions occurred for each case.
 }
 \examples{
-plot_MBL(mbl$session,mbl$measure,mbl$case,mbl$phase) 
+plot_MBL(mbl$session,mbl$measure,mbl$case,mbl$phase,xdiv=5,ylim=NULL) 
 
 
 }

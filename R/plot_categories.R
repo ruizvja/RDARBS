@@ -25,7 +25,7 @@
 plot_categories <-
 function(categories,start,end,lev=NULL,xlab="Time of observation",
                      ylab=NULL,title="title",col=I("black")){
-
+require(ggplot2)
 if(!is.null(lev)){
   events<-factor(c(categories,categories),levels=lev)} else{
     events<-c(categories,categories)

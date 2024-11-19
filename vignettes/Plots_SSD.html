@@ -420,7 +420,7 @@ value results in the assignation of a specific number of tick marks and
 the xdiv-1 corresponding intervals in the X-axis. <em>ylim</em> sets the
 upper limit of y-axis, by default, <em>NULL</em> value sets the limit in
 the next ten with respect to the maximum in dimension variable.
-Following lines of code illustrate the use of <em>reversal<span class="math inline">\(Session*, *reversal\)</span>Measure</em> and
+Following lines of code illustrate the use of <em>reversal<span class="math inline">\(Session* , *reversal\)</span>Measure</em> and
 <em>reversal$Phase</em> corresponding to the arguments <em>time</em>,
 <em>dimension</em>, and <em>phase</em>, respectively. The number 18 in
 <em>symbol</em> argument corresponds to filled diamonds. With
@@ -1194,11 +1194,15 @@ case, as well as labels corresponding to each of the phases.</p>
 <div id="changing-criteria-design" class="section level2">
 <h2>Changing criteria design</h2>
 <p>For changing criterion design, the proposed function has the form
-<code>plot_CC(time, dimension, criteria, phase, symbol=18, type=”o”, xlab=&quot;x&quot;, ylab=&quot;y&quot;, legend=&quot;Subject&quot;, xdiv=0,ylim=NULL). Where the arguments involved have the same function as in the previous cases, while</code><em>criteria</em>
-corresponds to the identification of the current criteria in each
-session. The following figure shows the case of changing criterion
-design using data set <em>changing</em>. This data set includes the
-registration of a behavior (<em>Measure</em> column)</p>
+<code>plot_CC(time, dimension, criteria, phase, symbol=18, type=”o”, xlab=&quot;x&quot;, ylab=&quot;y&quot;, legend=&quot;Subject&quot;, xdiv=0,ylim=NULL)</code>.
+Where the arguments involved have the same function as in the previous
+cases, while <em>criteria</em> corresponds to the identification of the
+current criteria in each session. The following figure shows the case of
+changing criterion design using data set <em>changing</em>. This data
+set includes the registration of a behavior (<em>Measure</em> column)
+over 60 sessions (<em>Session</em> column) for each one of three phases
+(<em>Phase</em> column), corresponding to specific values of each
+criterion (<em>Criteria</em> column).</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>changing</span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt;    Session Measure Criteria  Phase</span></span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; 1        1      18       25 Crit 1</span></span>
@@ -1261,18 +1265,15 @@ registration of a behavior (<em>Measure</em> column)</p>
 <span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a><span class="co">#&gt; 58      58      60       55 Crit 3</span></span>
 <span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a><span class="co">#&gt; 59      59      60       55 Crit 3</span></span>
 <span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a><span class="co">#&gt; 60      60      60       55 Crit 3</span></span></code></pre></div>
-<p>The call of the function was as follows: plot_CC(changing<span class="math inline">\(Session, changing\)</span>Measure, changing<span class="math inline">\(Criteria, changing\)</span>Phase, symbol=18,
-type=“o”, xlab=“x”, ylab=“y”, legend=“Subject”, xdiv= 7,ylim=NULL) The
-function automatically establishes, based on the number and names of the
-categories that are included in the phase variable (and its crossing
-with the Criteria variable), the number of sessions that are included in
-each phase, the placement of the vertical lines that separate the
-sessions under each, as well as the labels corresponding to each phase.
-In other applications of this function, user must make sure to design a
-data set in which the crossing of the values in each variable allows a
-correct reading of the session number, the magnitude of the measured
-variable and the current phase of each observation, for each of the
-criteria considered in the research design.</p>
+<p>The call of the function was as follows:
+<code>plot_CC(changing$Session, changing$Measure, changing$Criteria, changing$Phase, symbol=18, type=&quot;o&quot;, xlab=&quot;x&quot;, ylab=&quot;y&quot;, legend=&quot;Subject&quot;, xdiv= 7,ylim=NULL)</code>
+The function automatically establishes, based on the number and names of
+the categories that are included in the <em>phase</em> variable (and its
+crossing with the <em>Criteria</em> variable), the number of sessions
+that are included in each phase, the placement of the vertical lines
+that separate the sessions under each, as well as the labels
+corresponding to each phase. Following figure illustrates ths plot of
+data from a changing criteria design.</p>
 <p><svg id="svg_a4c8cc29a04bc73cac7d" role="img" width="504pt" height="504pt" viewBox="0 0 504 504">
 <defs>
 <g>
@@ -1553,10 +1554,14 @@ criteria considered in the research design.</p>
   <use xlink:href="#svg_a4c8cc29a04bc73cac7d_glyph0-12" x="356.667969" y="162.71875" />
 </g>
 </g>
-</svg><!-- --></p>
-</div>
-<div id="alternating-treatments-design" class="section level2">
-<h2>Alternating treatments design</h2>
+</svg><!-- --> ## Alternating treatments
+design For alternating treatments or multielement designs, data set
+<em>multielement</em> exemplifies the structure needed to use function
+designed to plot data from this type of design. Data correspond to
+frequency of target behavior (<em>Measure</em> column) over 25 sessions
+(<em>Session</em> column) for each one of three phases (<em>Phase</em>
+column), corresponding to different treatments (<em>Treatment</em>
+column).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>multielement</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt;    Session Measure   Phase Treatment</span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; 1        1      10 Phase 1        BL</span></span>
@@ -1584,7 +1589,25 @@ criteria considered in the research design.</p>
 <span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt; 23      23       1 Phase 3       IV2</span></span>
 <span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co">#&gt; 24      24       2 Phase 3       IV2</span></span>
 <span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co">#&gt; 25      25       5 Phase 3       IV2</span></span></code></pre></div>
-<p><svg id="svg_9dfe5d8a524fdbd4086c" role="img" width="504pt" height="504pt" viewBox="0 0 504 504">
+<p>The proposed function has the form
+<code>plot_ME(time, dimension, treatment, phase, symbol=c(0,15,19), type=”o”, xlab=&quot;x&quot;, ylab=&quot; y&quot;, legend=&quot;Subject&quot;,ylim=NULL)</code>.
+Where the arguments involved have the same function as in the previous
+cases, while <em>treatment</em> corresponds to the designation of the
+current treatment at a given moment. In this case, <em>symbol</em>
+argument is predefined with three different plotting characters, one for
+baseline data and two more for two alternated treatments; however, users
+can change the quantity of values (and the number for each value) to
+identify the corresponding number of conditions (i.e., different data
+series). Next figure shows the case of alternating treatments or
+multielement design using the data set <em>multielement</em>, with a
+call of the function as follows:
+<code>plot_ME(multielement$Session, multielement$Measure, multielement$Treatment, multielement$Phase, symbol=c(0,15,19), type=&quot;o&quot;, xlab=&quot;x&quot;, ylab=&quot;y&quot;, legend=&quot;Subject&quot;, xdiv = 5,ylim=NULL)</code>
+The function automatically establishes, based on the number and names of
+the categories that are included in the phase variable, the number of
+sessions that are included in each phase, the placement of the vertical
+lines that separate the baseline sessions from those of treatment in
+each case, as well as the labels corresponding to each one of the
+phases. <svg id="svg_9dfe5d8a524fdbd4086c" role="img" width="504pt" height="504pt" viewBox="0 0 504 504">
 <defs>
 <g>
 <symbol overflow="visible" id="svg_9dfe5d8a524fdbd4086c_glyph0-0">
@@ -1889,6 +1912,16 @@ criteria considered in the research design.</p>
 </g>
 </g>
 </svg><!-- --></p>
+<p>In the case of this figure, function <em>legend()</em> must be added
+to specify the labels for each data series. Although this function
+accepts more arguments than those shown in the code below, those
+illustrated allow to establish X-Y coordinates to show the legend, to
+write the labels of data series, to assign the symbols for data series,
+specify the line type for data series, the title of the legend, the type
+of font, whether or not the legend will appear framed, as well as the
+background color of the legend box. The code to show the legend in the
+example plot of this dessign was as follos
+<code>legend(19,19, legend=c(&quot;BL&quot;, &quot;IV1&quot;,&quot;IV2&quot;), pch= c(0,15,19),lty=1, title=&quot;Conditions&quot;, text.font=4,box.lty = 1, bg=NULL)</code></p>
 </div>
 
 

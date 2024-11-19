@@ -38,7 +38,7 @@ The function automatically establishes, based on the number and names of the cat
 
 ```{r plot_Reversal, include=TRUE, echo=FALSE}
 
-knitr::include_graphics("RDARBS/R/Fig5_R3.svg")
+knitr::include_graphics("https://github.com/ruizvja/RDARBS/R/Fig5_R3.svg")
 ```
 
 
@@ -56,7 +56,7 @@ plot_MBL(mbl$session, mbl$measure, mbl$case, mbl$phase, symbol=18, type="o", xla
 The function automatically determines, based on the number and names of the categories that are included in the *phase* variable (and its crossing with the *case* variable), the number of sessions that are included in each phase, the placement of the vertical lines that separate the baseline sessions from the treatment sessions in each case, as well as labels corresponding to each of the phases.
 
 ```{r plot_mbl, include=TRUE, echo=FALSE}
-knitr::include_graphics("RDARBS/R/Fig6_R3.svg")
+knitr::include_graphics("https://github.com/ruizvja/RDARBS/R/Fig6_R3.svg")
 ```
 
 ## Changing criteria design
@@ -73,7 +73,7 @@ The function automatically establishes, based on the number and names of the cat
 
 ```{r plot_CC, include=TRUE, echo=FALSE}
 
-knitr::include_graphics("RDARBS/R/Fig7_R3.svg")
+knitr::include_graphics("https://github.com/ruizvja/RDARBS/R/Fig7_R3.svg")
 ```
 ## Alternating treatments design
 For alternating treatments or multielement designs, data set *multielement* exemplifies the structure needed to use  function designed to plot data from this type of design. Data correspond to frequency of target behavior (*Measure* column) over 25 sessions (*Session* column) for each one of three phases (*Phase* column), corresponding to different treatments (*Treatment* column).
@@ -85,7 +85,7 @@ The proposed function has the form `plot_ME(time, dimension, treatment, phase, s
 The function automatically establishes, based on the number and names of the categories that are included in the phase variable, the number of sessions that are included in each phase, the placement of the vertical lines that separate the baseline sessions from those of treatment in each case, as well as the labels corresponding to each one of the phases.
 ```{r plot_ME, include=TRUE, echo=FALSE}
 
-knitr::include_graphics("RDARBS/R/Fig8_R3.svg")
+knitr::include_graphics("https://github.com/ruizvja/RDARBS/R/Fig8_R3.svg")
 ```
 
 In the case of this figure, function *legend()* must be added to specify the labels for each data series. Although this function accepts more arguments than those shown in the code below, those illustrated allow to establish X-Y coordinates to show the legend, to write the labels of data series, to assign the symbols for data series, specify the line type for data series, the title of the legend, the type of font, whether or not the legend will appear framed, as well as the background color of the legend box. The code to show the legend in the example plot of this dessign was as follos

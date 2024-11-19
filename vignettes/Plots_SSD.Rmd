@@ -38,7 +38,7 @@ The function automatically establishes, based on the number and names of the cat
 
 ```{r plot_Reversal, include=TRUE, echo=FALSE}
 
-knitr::include_graphics("https://github.com/ruizvja/RDARBS/R/Fig5_R3.svg")
+knitr::include_graphics("Fig5_R3.svg")
 ```
 
 
